@@ -1,0 +1,36 @@
+{
+    "flashcards": [
+        {
+            "front": "car",
+            "back": "samochod",
+            "repeats": [
+                10010,
+                12546
+            ],
+            "library": [
+                {
+                    "test1": "Atest1"
+                },
+                {
+                    "test2": "Atest2"
+                }
+            ]
+        },
+        {
+            "front": "areoplane",
+            "back": "samolot",
+            "repeats": [
+                10010,
+                12546
+            ],
+            "library": [
+                {
+                    "test1": "Atest1"
+                },
+                {
+                    "test2": "Atest2"
+                }
+            ]
+        }
+    ]
+}
