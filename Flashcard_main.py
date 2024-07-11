@@ -1,13 +1,23 @@
 import json
 
 class Json:
-    def __init__(self,name,data):
+    def __init__(self,name,data=None):
         self.name = f'{name}.json'
-        self.data = data
+        self.data = data if data is not None else {}
 
 
     def loadAllFlashcard(self):
-        pass
+        with open(self.name, 'r') as file:
+            dane = json.load(file)
+            flashcards = dane.get('flashcards')
+            flashcards_number = len(dane.get('flashcards'))
+            for i in range(flashcards_number):
+                front = flashcards[i].get('front')
+                back = flashcards[i].get('back')
+                repeats = flashcards[i].get('repeats')
+                library = flashcards[i].get('library')
+                Flashcard(front,back,repeats,library)
+
 
     def updateFlashcard(self,front,last_repeats):
         pass
@@ -38,19 +48,21 @@ class Flashcard:
         return cls.count
 
 
-F_car = Flashcard('car','samochod',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
-F_areoplane = Flashcard('areoplane','samolot',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
+# F_car = Flashcard('car','samochod',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
+# F_areoplane = Flashcard('areoplane','samolot',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
 
 name = "test"
 
 
-flashcards = [F_car,F_areoplane]
+# flashcards = [F_car,F_areoplane]
 
-data = {'flashcards': [flashcard.__dict__
-                       for flashcard in flashcards] }
+# data = {'flashcards': [flashcard.__dict__
+#                        for flashcard in flashcards] }
 
-test = Json(name,data)
-test.saveflashcard()
+test = Json(name,None).loadAllFlashcard()
+# print(len(test.get('flashcards')))
+
+#test.saveflashcard()
 
 all_instances = Flashcard.get_all_instances()
 print(Flashcard.get_count())
