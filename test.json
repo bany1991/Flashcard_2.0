@@ -31,6 +31,38 @@
                     "test2": "Atest2"
                 }
             ]
+        },
+        {
+            "front": "example",
+            "back": "przyk³ad",
+            "repeats": [
+                10010,
+                12546
+            ],
+            "library": [
+                {
+                    "test1": "Atest1"
+                },
+                {
+                    "test2": "Atest2"
+                }
+            ]
+        },
+        {
+            "front": "something",
+            "back": "cos",
+            "repeats": [
+                10010,
+                12546
+            ],
+            "library": [
+                {
+                    "test1": "Atest1"
+                },
+                {
+                    "test2": "Atest2"
+                }
+            ]
         }
     ]
 }

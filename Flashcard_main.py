@@ -1,9 +1,10 @@
 import json
+import time
 
 class Json:
-    def __init__(self,name,data=None):
+    def __init__(self,name):
         self.name = f'{name}.json'
-        self.data = data if data is not None else {}
+        self.data = None
 
 
     def loadAllFlashcard(self):
@@ -19,11 +20,12 @@ class Json:
                 Flashcard(front,back,repeats,library)
 
 
-    def updateFlashcard(self,front,last_repeats):
+    def updateFlashcard(self,flashcard,last_repeats):
         pass
 
-    def saveflashcard(self):
+    def saveflashcard(self,data):
         with open(self.name, 'w') as file:
+            self.data = data
             json.dump(self.data, file, indent=4, ensure_ascii=False)
 
 
@@ -47,26 +49,34 @@ class Flashcard:
     def get_count(cls):
         return cls.count
 
+    @classmethod
+    def to_repeat(cls):
+        repeats = []
+        for instance in cls.instances:
+            if instance.repeats[-1] <= time.time():
+                repeats.append(instance)
+        return repeats
 
-# F_car = Flashcard('car','samochod',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
-# F_areoplane = Flashcard('areoplane','samolot',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
+    @classmethod
+    def to_json(cls):
+        fc_data = {'flashcards': [flashcard.__dict__
+                                for flashcard in cls.instances] }
+        return fc_data
+
 
 name = "test"
 
+fc_json = Json(name)
+fc_json.loadAllFlashcard()
 
-# flashcards = [F_car,F_areoplane]
+F_cos = Flashcard('something','cos',[10010,12546],[{"test1":"Atest1"},{"test2":"Atest2"}])
 
-# data = {'flashcards': [flashcard.__dict__
-#                        for flashcard in flashcards] }
+fc_json.saveflashcard(Flashcard.to_json())
 
-test = Json(name,None).loadAllFlashcard()
-# print(len(test.get('flashcards')))
 
-#test.saveflashcard()
+# print(Flashcard.get_count())
+# print(Flashcard.to_repeat())
 
-all_instances = Flashcard.get_all_instances()
-print(Flashcard.get_count())
-
-for instance in all_instances:
-    print(instance.front)
+# for instance in all_instances:
+#      print(instance.front)
 
