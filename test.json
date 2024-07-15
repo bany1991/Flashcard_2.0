@@ -1,59 +1,11 @@
 {
     "flashcards": [
         {
-            "front": "car",
-            "back": "samochod",
-            "repeats": [
-                10010,
-                12546
-            ],
-            "library": [
-                {
-                    "test1": "Atest1"
-                },
-                {
-                    "test2": "Atest2"
-                }
-            ]
-        },
-        {
-            "front": "areoplane",
-            "back": "samolot",
-            "repeats": [
-                10010,
-                12546
-            ],
-            "library": [
-                {
-                    "test1": "Atest1"
-                },
-                {
-                    "test2": "Atest2"
-                }
-            ]
-        },
-        {
-            "front": "example",
-            "back": "przyk³ad",
-            "repeats": [
-                10010,
-                12546
-            ],
-            "library": [
-                {
-                    "test1": "Atest1"
-                },
-                {
-                    "test2": "Atest2"
-                }
-            ]
-        },
-        {
             "front": "something",
             "back": "cos",
             "repeats": [
-                10010,
-                12546
+                1720894199.576264,
+                1728831852.314381
             ],
             "library": [
                 {
@@ -62,7 +14,25 @@
                 {
                     "test2": "Atest2"
                 }
-            ]
+            ],
+            "goodinrow": 7
+        },
+        {
+            "front": "something3",
+            "back": "cos",
+            "repeats": [
+                1720894199.576264,
+                1721081772.314381
+            ],
+            "library": [
+                {
+                    "test1": "Atest1"
+                },
+                {
+                    "test2": "Atest2"
+                }
+            ],
+            "goodinrow": 1
         }
     ]
 }
